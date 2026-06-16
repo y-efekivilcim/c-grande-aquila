@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Aladin&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  font-family: 'Aladin', cursive;
+  color-scheme: dark;
+}
+
+body {
+  background: #0A0E17;
+  color: #E2E8F0;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100dvh;
+  padding: 2vw;
+  gap: 2vw;
+}
+
+.top-row {
+  display: flex;
+  gap: 2vw;
+  align-items: stretch;
+}
+
+.card {
+  background: rgba(15, 15, 18, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.8rem 2.2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.info-card {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #FF6B00;
+  text-transform: uppercase;
+}
+
+.desc {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: #94A3B8;
+  line-height: 1.6;
+}
+
+.quote-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  min-height: 7.2em;
+}
+
+.quote-line {
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+  white-space: pre;
+  min-height: 1.5em;
+}
+
+.ch {
+  display: inline-block;
+  transition: color 0.4s, opacity 0.4s, text-shadow 0.4s;
+}
+
+.ch.glitch {
+  transition: none;
+}
+
+.web-container {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  background: rgba(10, 10, 12, 0.95);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5), 0 8px 32px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  position: relative;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+canvas:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+  .shell {
+    padding: 4vw;
+    gap: 4vw;
+    height: auto;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+  .top-row {
+    flex-direction: column;
+  }
+  .info-card, .quote-card {
+    flex: auto;
+  }
+  .web-container {
+    flex: 1;
+    min-height: 50vh;
+  }
+  .quote-line {
+    font-size: min(1.4rem, 3.8vw);
+  }
+}
